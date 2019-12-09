@@ -44,7 +44,7 @@ def update():
         lat.append(y)
         RN.append(roadname)
     for i in range(0,len(lon)):
-        suburl = '?version=1&centerLat=%f&centerLon=%f&reqCoordType=WGS84GEO&resCoordType=WGS84GEO&trafficType=POINT&zoomLevel=7&appKey=d6b88f72-12a6-4f9a-820a-49d36b17297a' % (lat[i], lon[i])
+        suburl = '?version=1&centerLat=%f&centerLon=%f&reqCoordType=WGS84GEO&resCoordType=WGS84GEO&trafficType=POINT&zoomLevel=7&appKey=%s' % (lat[i], lon[i], key)
         rest_data=requests.get(url+suburl)
         soup=BeautifulSoup(rest_data.content,'html.parser')
         newDictionary=json.loads(str(soup))
